@@ -77,7 +77,7 @@ Compressor::Compressor() : shader(SHADER_VERT, SHADER_FRAG, std::nullopt) {
 Compressor::~Compressor() = default;
 
 Compressor::Result Compressor::compress(const std::string& filename, const GLuint target, const GLsizei width) {
-    auto levels = static_cast<int>(std::log2(width)) - 2;
+    auto levels = static_cast<int>(std::log2(width)) - 1;
 
     // Load the source image
     int imgWidth, imgHeigth, imgChannels;
@@ -165,6 +165,7 @@ Compressor::Result Compressor::compress(const std::string& filename, const GLuin
 
         GLint compressedSize;
         glGetTexLevelParameteriv(GL_TEXTURE_2D, level, GL_TEXTURE_COMPRESSED_IMAGE_SIZE, &compressedSize);
+        std::cout << "Mipmap: " << level << " size: " << w << "x" << w << " bytes: " << compressedSize << std::endl;
         totalBytes += compressedSize;
 
         // std::vector<uint8_t> pixels;
