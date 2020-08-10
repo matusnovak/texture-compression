@@ -6,6 +6,8 @@ The compression is done in `src/Compressor.cpp` file. This works by rendering th
 
 ![sample.png](sample.png)
 
+Sample image `lena.png` was converted from `lena.tiff` downloaded from http://eeweb.poly.edu/~yao/EL5123/SampleData.html
+
 ## Usage
 
 Compile the application via CMake and vcpkg (steps below). Run the `TextureCompression.exe` executable. **Press spacebar on your keyboard to switch between compression types.**
